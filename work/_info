@@ -1,0 +1,31 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+vbuard_rate_generator
+!s110 1771728487
+!i10b 1
+!s100 jJ54DkLgBP`fc;oC]On:Y2
+IT2j;P=zWS9NMD4A3A9n9d2
+VDg1SIo80bB@j0V0VzS_@n1
+dC:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART
+w1771728473
+8C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/buad_rate_generator.v
+FC:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/buad_rate_generator.v
+L0 8
+OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1771728487.000000
+!s107 C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/buad_rate_generator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/buad_rate_generator.v|
+!i113 1
+o-work work
+tCvgOpt 0

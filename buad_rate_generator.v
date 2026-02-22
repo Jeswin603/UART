@@ -1,0 +1,47 @@
+//************************************************************************
+//				UART COUNTER
+//				CLK 50 MHz 
+//			Buard rate generator 9600
+//			tx_counter	=	5208 cycles		
+//			rx_counter	= 	325  cycles
+//************************************************************************
+module buard_rate_generator(
+	input clk,
+	input rst,
+	output tx_enb,
+	output rx_enb
+);
+
+	reg [12:0] tx_counter;
+	reg  [8:0] rx_counter;
+
+always @(posedge clk or negedge rst) begin
+	if(!rst)begin
+		tx_counter	<= 0;
+	end
+	
+	else begin
+		if(tx_counter == 5207)
+			tx_counter	<= 0;
+		else
+			tx_counter	<= tx_counter +1;
+
+	end
+end
+always @(posedge clk or negedge rst) begin
+	if(!rst)begin
+		rx_counter	<= 0;
+	end
+	
+	else begin
+		if(rx_counter == 325)
+			rx_counter	<= 0;
+		else
+			rx_counter	<= rx_counter +1;
+
+	end
+end
+
+assign tx_enb = (tx_counter == 0) ?  1'b1: 1'b0;
+assign rx_enb = (rx_counter == 0) ?  1'b1: 1'b0;
+endmodule
