@@ -5,9 +5,9 @@
 //			tx_counter	=	5208 cycles		
 //			rx_counter	= 	325  cycles
 //************************************************************************
-module buard_rate_generator(
+module baud_rate_generator(
 	input clk,
-	input rst,
+	input reset,
 	output tx_enb,
 	output rx_enb
 );
@@ -15,8 +15,8 @@ module buard_rate_generator(
 	reg [12:0] tx_counter;
 	reg  [8:0] rx_counter;
 
-always @(posedge clk or negedge rst) begin
-	if(!rst)begin
+always @(posedge clk or negedge reset) begin
+	if(!reset)begin
 		tx_counter	<= 0;
 	end
 	
@@ -28,8 +28,8 @@ always @(posedge clk or negedge rst) begin
 
 	end
 end
-always @(posedge clk or negedge rst) begin
-	if(!rst)begin
+always @(posedge clk or negedge reset) begin
+	if(!reset)begin
 		rx_counter	<= 0;
 	end
 	

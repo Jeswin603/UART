@@ -1,15 +1,29 @@
-C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/transmitter.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/transmitter.v
+C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/receiver.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/receiver.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module transmiter
+-- Compiling module receiver
 
 Top level modules:
-	transmiter
+	receiver
+
+} {} {}} C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/transmitter.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/transmitter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module transmitter
+
+Top level modules:
+	transmitter
 
 } {} {}} C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/buad_rate_generator.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/buad_rate_generator.v
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module buard_rate_generator
+-- Compiling module baud_rate_generator
 
 Top level modules:
-	buard_rate_generator
+	baud_rate_generator
+
+} {} {}} C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/module_uart_top.v {1 {vlog -work work -stats=none C:/Users/User/Desktop/compress/M-TECH/P_PROJECT/UART/VERILOG/module_uart_top.v
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module uart_top
+
+Top level modules:
+	uart_top
 
 } {} {}}

@@ -1,0 +1,75 @@
+module uart_top_tb;
+	reg clk,reset;
+	reg [7:0] data_in;
+	reg wr_en;
+	reg rdy_clr;
+
+	wire rdy;
+	wire busy;
+	wire [7:0] data_output;
+
+uart_top dut(
+	.clk(clk),
+	.reset(reset),
+	.data_in(data_in),
+	.wr_en(wr_en),
+	.rdy_clr(rdy_clr),
+	.rdy(rdy),
+	.busy(busy),
+	.data_output(data_output ));
+
+
+initial begin
+	{clk,data_in,rdy_clr} = 0;
+end
+
+always #5 clk = ~clk;
+
+
+
+
+task send_byte(input [7:0] din);
+	begin
+		@(negedge clk);
+		data_in	=din;
+		wr_en	= 1'b1;
+		@(negedge clk)
+		wr_en	= 0;
+	end
+endtask
+
+task clear_ready;// going to make ready signal clear
+	begin
+		@(negedge clk);
+		rdy_clr	= 1'b1;
+		@(negedge clk);
+		rdy_clr	= 1'b0;
+	end
+endtask
+
+
+initial begin
+
+	reset	= 1'b1;
+	#10;
+	reset	= 1'b0;
+	#10;
+	reset	= 1'b1;
+	send_byte (8'h41);
+	wait(!busy);
+	wait(rdy);
+	$display ("recevied data is %h",data_output);
+	clear_ready;
+	
+	send_byte (8'h55);
+	wait(!busy);
+	wait(rdy);
+	$display("recevied data is %h",data_output);
+	clear_ready;
+
+	#4000
+	$stop;
+
+end
+
+endmodule

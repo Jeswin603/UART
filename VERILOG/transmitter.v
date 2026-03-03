@@ -1,11 +1,11 @@
-module transmiter(
+module transmitter(
 	input clk,
 	input reset,
 	input wr_enb,
 	input enb,
 	input [7:0] data_in,
 	output reg tx,
-	output busy
+	output tx_busy
 );
 
 parameter idle_state  = 2'b00;
@@ -69,6 +69,6 @@ always @(posedge clk or negedge reset)begin
 		endcase	
 	end
 end
-assign busy = (state != idle_state) ? 1:0;
+assign tx_busy = (state != idle_state) ? 1:0;
 
 endmodule

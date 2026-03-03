@@ -1,0 +1,43 @@
+module uart_top(
+	input clk,
+	input reset,
+	input [7:0] data_in,
+	input wr_en,
+	input rdy_clr,
+	output rdy,
+	output busy,
+	output [7:0] data_output
+);
+
+wire rx_clk_en;		//connecting output of our uart baud rate generator rx_en signal
+wire tx_clk_en;		//connecting output of our uart baud rate generator tx_en signal
+
+wire tx_temp;		// connecting the output of tx module
+
+
+baud_rate_generator bg(
+	.clk(clk),
+	.reset(reset),
+	.tx_enb(tx_clk_en),
+	.rx_enb(rx_clk_en));
+
+receiver rx(
+	.clk(clk),
+	.reset(reset),
+	.rx(tx_temp),
+	.rdy_clr(rdy_clr),
+	.clk_en(rx_clk_en),
+	.rdy(rdy),
+	.data_out(data_output));
+
+transmitter tx(
+	.clk(clk),
+	.reset(reset),
+	.wr_enb(wr_en),
+	.enb(tx_clk_en),
+	.data_in(data_in),
+	.tx(tx_temp),
+	.tx_busy(busy));
+
+endmodule
+
